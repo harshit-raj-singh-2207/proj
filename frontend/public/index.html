@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <!-- ─── Charset & Viewport ─────────────────────────────────── -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- ─── Primary SEO ───────────────────────────────────────── -->
+    <title>CareerCopilot AI — Supercharge Your Career</title>
+    <meta name="description" content="CareerCopilot AI is your intelligent career navigator. Get AI-powered resume analysis, ATS checking, mock interviews, coding practice, job recommendations, and a full career roadmap — all in one platform." />
+    <meta name="keywords" content="career AI, resume analyzer, ATS checker, mock interview, coding practice, job recommendations, career roadmap, placement analytics, AI career twin, recruiter tools" />
+    <meta name="author" content="CareerCopilot AI" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#7c3aed" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- ─── Open Graph (Facebook / LinkedIn) ──────────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CareerCopilot AI" />
+    <meta property="og:title" content="CareerCopilot AI — Supercharge Your Career" />
+    <meta property="og:description" content="AI-powered resume analysis, ATS checking, mock interviews, coding practice, job matching, and career roadmaps — all in one platform." />
+    <meta property="og:image" content="%PUBLIC_URL%/images/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CareerCopilot AI Dashboard Preview" />
+    <meta property="og:url" content="https://careercopilot.ai" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ─── Twitter Card ──────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@careercopilotai" />
+    <meta name="twitter:creator" content="@careercopilotai" />
+    <meta name="twitter:title" content="CareerCopilot AI — Supercharge Your Career" />
+    <meta name="twitter:description" content="AI-powered career tools: resume analysis, ATS checker, mock interviews, coding practice, and smart job matching." />
+    <meta name="twitter:image" content="%PUBLIC_URL%/images/og-cover.png" />
+
+    <!-- ─── PWA / Icons ───────────────────────────────────────── -->
+    <link rel="icon" href="%PUBLIC_URL%/logo.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="CareerCopilot" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="CareerCopilot AI" />
+    <meta name="msapplication-TileColor" content="#7c3aed" />
+
+    <!-- ─── Google Fonts ──────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ─── Structured Data (JSON-LD) ─────────────────────────── -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CareerCopilot AI",
+        "url": "https://careercopilot.ai",
+        "description": "AI-powered career platform for resume analysis, ATS checking, mock interviews, coding practice, and job matching.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "AI Resume Analyzer",
+          "ATS Score Checker",
+          "Mock Interview Practice",
+          "Coding Practice",
+          "Job Recommendations",
+          "Career Roadmap",
+          "Placement Analytics",
+          "AI Career Digital Twin",
+          "Recruiter Arena",
+          "Trend Radar"
+        ]
+      }
+    </script>
+
+    <!-- ─── Pre-React Loading Screen Styles ───────────────────── -->
+    <style>
+      /* Base reset for loader */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        background: #030712;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow: hidden; /* prevent scroll flash during load */
+      }
+
+      /* Loading splash — shown before React hydrates */
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #030712;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+      }
+
+      #splash.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      /* Logo mark */
+      .splash-logo {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, #7c3aed, #06b6d4);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -1px;
+        box-shadow: 0 0 40px rgba(124, 58, 237, 0.4);
+        animation: pulse-logo 2s ease-in-out infinite;
+      }
+
+      @keyframes pulse-logo {
+        0%, 100% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.4); transform: scale(1); }
+        50%       { box-shadow: 0 0 60px rgba(6, 182, 212, 0.5);  transform: scale(1.04); }
+      }
+
+      /* Brand name */
+      .splash-name {
+        font-size: 22px;
+        font-weight: 700;
+        color: #f8fafc;
+        letter-spacing: -0.5px;
+      }
+
+      .splash-name span {
+        background: linear-gradient(135deg, #a78bfa, #34d399, #38bdf8);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Animated progress bar */
+      .splash-bar-track {
+        width: 180px;
+        height: 3px;
+        background: rgba(148, 163, 184, 0.12);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+
+      .splash-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #7c3aed, #06b6d4);
+        border-radius: 999px;
+        animation: bar-fill 1.8s ease-in-out forwards;
+      }
+
+      @keyframes bar-fill {
+        0%   { width: 0%; }
+        60%  { width: 75%; }
+        90%  { width: 90%; }
+        100% { width: 100%; }
+      }
+
+      /* Tagline */
+      .splash-tagline {
+        font-size: 13px;
+        color: #64748b;
+        letter-spacing: 0.5px;
+      }
+
+      /* React root — hidden until React removes the splash */
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- No-JS fallback -->
+    <noscript>
+      <div style="position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#030712;color:#f8fafc;font-family:sans-serif;text-align:center;padding:24px;">
+        <div>
+          <h1 style="font-size:24px;margin-bottom:8px;">JavaScript Required</h1>
+          <p style="color:#94a3b8;">Please enable JavaScript to run CareerCopilot AI.</p>
+        </div>
+      </div>
+    </noscript>
+
+    <!-- ─── Pre-React Loading Splash ────────────────────────────── -->
+    <div id="splash" aria-hidden="true" role="presentation">
+      <div class="splash-logo">CC</div>
+      <div class="splash-name">Career<span>Copilot</span></div>
+      <div class="splash-bar-track">
+        <div class="splash-bar-fill"></div>
+      </div>
+      <p class="splash-tagline">Supercharging your career with AI…</p>
+    </div>
+
+    <!-- ─── React App Root ───────────────────────────────────────── -->
+    <!--
+      React mounts your entire app here.
+      src/index.js → src/jsx/App.jsx → all pages & components.
+      Do NOT add content here — React controls this div.
+    -->
+    <div id="root"></div>
+
+    <!-- ─── Hide Splash Once React Loads ────────────────────────── -->
+    <script>
+      // React will call this after first render via useEffect in App.jsx
+      // Fallback: auto-hide after 3s in case React is slow
+      window.__hideSplash = function () {
+        var splash = document.getElementById('splash');
+        if (splash) splash.classList.add('hidden');
+        document.body.style.overflow = '';
+      };
+      setTimeout(window.__hideSplash, 3000);
+    </script>
+  </body>
+</html>
