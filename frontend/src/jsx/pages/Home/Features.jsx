@@ -210,35 +210,36 @@ export default function Features() {
 
 /* ─── Styles ────────────────────────────────────────────── */
 const s = {
-  section:   { padding: '100px 0', background: '#030712', fontFamily: 'Inter,sans-serif' },
+  section:   { padding: '100px 0', background: '#f8faff', fontFamily: 'Inter,sans-serif' },
   container: { maxWidth: 1200, margin: '0 auto', padding: '0 24px' },
 
   header: { textAlign: 'center', marginBottom: 40 },
   label: {
     display: 'inline-block', padding: '6px 18px', borderRadius: 999,
-    background: 'rgba(124,58,237,0.12)', border: '1px solid rgba(124,58,237,0.3)',
-    color: '#a78bfa', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em',
+    background: 'rgba(37,99,235,0.08)', border: '1px solid rgba(37,99,235,0.2)',
+    color: '#2563eb', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em',
     textTransform: 'uppercase', marginBottom: 20,
   },
   title: {
-    fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, color: '#f8fafc',
+    fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, color: '#0f172a',
     letterSpacing: '-0.03em', lineHeight: 1.2, marginBottom: 16,
   },
   grad: {
-    background: 'linear-gradient(135deg,#a78bfa,#22d3ee)',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
   },
-  subtitle: { color: '#94a3b8', fontSize: 16, maxWidth: 560, margin: '0 auto', lineHeight: 1.7 },
+  subtitle: { color: '#64748b', fontSize: 16, maxWidth: 560, margin: '0 auto', lineHeight: 1.7 },
 
   filterRow: { display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 48, flexWrap: 'wrap' },
   filterBtn: {
-    padding: '8px 22px', borderRadius: 999, border: '1px solid rgba(148,163,184,0.15)',
-    background: 'rgba(30,41,59,0.4)', color: '#94a3b8', fontSize: 13, fontWeight: 600,
+    padding: '8px 22px', borderRadius: 999, border: '1px solid rgba(37,99,235,0.2)',
+    background: '#ffffff', color: '#64748b', fontSize: 13, fontWeight: 600,
     cursor: 'pointer', transition: 'all 0.2s ease',
+    boxShadow: '0 1px 4px rgba(37,99,235,0.06)',
   },
   filterActive: {
-    background: 'rgba(124,58,237,0.15)', borderColor: 'rgba(124,58,237,0.4)',
-    color: '#a78bfa',
+    background: 'rgba(37,99,235,0.08)', borderColor: 'rgba(37,99,235,0.35)',
+    color: '#2563eb',
   },
 
   grid: {
@@ -254,6 +255,7 @@ const s = {
     display: 'flex', flexDirection: 'column', gap: 12,
     transition: 'all 0.25s ease', cursor: 'default',
     animation: 'fadeInUp 0.5s ease both',
+    background: '#ffffff',
   },
   cardTop:   { display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
   iconWrap: {
@@ -264,11 +266,11 @@ const s = {
     fontSize: 11, fontWeight: 700, padding: '4px 12px',
     borderRadius: 999, border: '1px solid', letterSpacing: '0.04em',
   },
-  cardTitle: { fontSize: 17, fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em' },
-  cardDesc:  { fontSize: 13, color: '#94a3b8', lineHeight: 1.65, margin: 0 },
+  cardTitle: { fontSize: 17, fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em' },
+  cardDesc:  { fontSize: 13, color: '#64748b', lineHeight: 1.65, margin: 0 },
 
   highlights: { listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 },
-  highlight:  { display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: '#64748b', fontWeight: 500 },
+  highlight:  { display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, color: '#94a3b8', fontWeight: 500 },
   dot:        { width: 6, height: 6, borderRadius: '50%', flexShrink: 0 },
 
   cardCta: {
@@ -283,26 +285,29 @@ const s = {
   },
 
   banner: {
-    background: 'linear-gradient(135deg,rgba(124,58,237,0.15),rgba(6,182,212,0.1))',
-    border: '1px solid rgba(124,58,237,0.25)', borderRadius: 20,
+    background: 'linear-gradient(135deg,rgba(37,99,235,0.06),rgba(14,165,233,0.06))',
+    border: '1px solid rgba(37,99,235,0.2)', borderRadius: 20,
     padding: '36px 40px', display: 'flex', alignItems: 'center',
     justifyContent: 'space-between', gap: 24, flexWrap: 'wrap',
   },
   bannerLeft:    {},
-  bannerTitle:   { fontSize: 22, fontWeight: 800, color: '#f8fafc', letterSpacing: '-0.02em', marginBottom: 6 },
-  bannerSub:     { color: '#94a3b8', fontSize: 14, margin: 0 },
+  bannerTitle:   { fontSize: 22, fontWeight: 800, color: '#0f172a', letterSpacing: '-0.02em', marginBottom: 6 },
+  bannerSub:     { color: '#64748b', fontSize: 14, margin: 0 },
   bannerActions: { display: 'flex', gap: 12, flexShrink: 0 },
 
   btnPrimary: {
     padding: '12px 28px', borderRadius: 10,
-    background: 'linear-gradient(135deg,#7c3aed,#06b6d4)',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     color: '#fff', fontSize: 14, fontWeight: 700, textDecoration: 'none',
     display: 'inline-flex', alignItems: 'center',
+    boxShadow: '0 4px 14px rgba(37,99,235,0.3)',
   },
   btnOutline: {
     padding: '12px 28px', borderRadius: 10,
-    border: '1px solid rgba(148,163,184,0.25)',
-    color: '#cbd5e1', fontSize: 14, fontWeight: 600, textDecoration: 'none',
+    border: '1.5px solid rgba(37,99,235,0.3)',
+    color: '#2563eb', fontSize: 14, fontWeight: 600, textDecoration: 'none',
     display: 'inline-flex', alignItems: 'center',
+    background: '#ffffff',
   },
 };
+

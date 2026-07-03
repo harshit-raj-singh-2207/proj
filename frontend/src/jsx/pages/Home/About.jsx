@@ -175,43 +175,44 @@ export default function About() {
 
 /* ─── Styles ────────────────────────────────────────────── */
 const s = {
-  section:   { padding: '100px 0', background: '#030712', fontFamily: 'Inter,sans-serif' },
+  section:   { padding: '100px 0', background: '#f8faff', fontFamily: 'Inter,sans-serif' },
   container: { maxWidth: 1200, margin: '0 auto', padding: '0 24px' },
 
   labelRow:  { display: 'flex', justifyContent: 'center', marginBottom: 20 },
   label: {
     display: 'inline-block', padding: '6px 18px', borderRadius: 999,
-    background: 'rgba(124,58,237,0.12)', border: '1px solid rgba(124,58,237,0.3)',
-    color: '#a78bfa', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
+    background: 'rgba(37,99,235,0.08)', border: '1px solid rgba(37,99,235,0.2)',
+    color: '#2563eb', fontSize: 12, fontWeight: 700, letterSpacing: '0.06em', textTransform: 'uppercase',
   },
 
   missionWrap: { textAlign: 'center', maxWidth: 800, margin: '0 auto 60px' },
   missionTitle: {
-    fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, color: '#f8fafc',
+    fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, color: '#0f172a',
     lineHeight: 1.2, letterSpacing: '-0.03em', marginBottom: 24,
   },
   gradientText: {
-    background: 'linear-gradient(135deg,#a78bfa,#22d3ee)',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
   },
-  missionDesc: { color: '#94a3b8', fontSize: 16, lineHeight: 1.75, marginBottom: 16 },
+  missionDesc: { color: '#64748b', fontSize: 16, lineHeight: 1.75, marginBottom: 16 },
 
   statsGrid: {
     display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 16, marginBottom: 64,
   },
   statCard: {
-    background: 'linear-gradient(135deg,rgba(124,58,237,0.08),rgba(6,182,212,0.08))',
-    border: '1px solid rgba(148,163,184,0.12)', borderRadius: 16, padding: '28px 20px',
+    background: 'linear-gradient(135deg,rgba(37,99,235,0.05),rgba(14,165,233,0.05))',
+    border: '1px solid rgba(37,99,235,0.12)', borderRadius: 16, padding: '28px 20px',
     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, textAlign: 'center',
+    boxShadow: '0 2px 12px rgba(37,99,235,0.06)',
   },
   statIcon:  { fontSize: 28 },
-  statValue: { fontSize: 36, fontWeight: 900, color: '#f8fafc', letterSpacing: '-0.03em', lineHeight: 1 },
+  statValue: { fontSize: 36, fontWeight: 900, color: '#0f172a', letterSpacing: '-0.03em', lineHeight: 1 },
   statLabel: { fontSize: 13, color: '#64748b', fontWeight: 500 },
 
-  divider: { height: 1, background: 'rgba(148,163,184,0.08)', margin: '64px 0' },
+  divider: { height: 1, background: 'rgba(37,99,235,0.08)', margin: '64px 0' },
 
   sectionH3: {
-    fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, color: '#f8fafc',
+    fontSize: 'clamp(22px,3vw,32px)', fontWeight: 800, color: '#0f172a',
     textAlign: 'center', letterSpacing: '-0.025em', marginBottom: 12,
   },
 
@@ -219,43 +220,46 @@ const s = {
     display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 20, marginTop: 40,
   },
   valueCard: {
-    background: '#0f172a', border: '1px solid rgba(148,163,184,0.1)',
+    background: '#ffffff', border: '1px solid rgba(37,99,235,0.1)',
     borderRadius: 16, padding: 28, transition: 'border-color 0.2s ease',
+    boxShadow: '0 2px 8px rgba(37,99,235,0.05)',
   },
   valueIcon:  { fontSize: 32, display: 'block', marginBottom: 16 },
-  valueTitle: { fontSize: 17, fontWeight: 700, color: '#f8fafc', marginBottom: 10 },
-  valueDesc:  { fontSize: 14, color: '#94a3b8', lineHeight: 1.7, margin: 0 },
+  valueTitle: { fontSize: 17, fontWeight: 700, color: '#0f172a', marginBottom: 10 },
+  valueDesc:  { fontSize: 14, color: '#64748b', lineHeight: 1.7, margin: 0 },
 
   teamGrid: {
     display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, marginBottom: 48,
   },
   teamCard: {
-    background: '#0f172a', border: '1px solid rgba(148,163,184,0.1)',
+    background: '#ffffff', border: '1px solid rgba(37,99,235,0.1)',
     borderRadius: 16, padding: '28px 20px', textAlign: 'center',
+    boxShadow: '0 2px 8px rgba(37,99,235,0.05)',
   },
   teamAvatar: {
     width: 64, height: 64, borderRadius: '50%', display: 'flex',
     alignItems: 'center', justifyContent: 'center', fontSize: 20,
     fontWeight: 800, color: '#fff', margin: '0 auto 16px',
   },
-  teamName:  { fontSize: 15, fontWeight: 700, color: '#f8fafc', marginBottom: 4 },
+  teamName:  { fontSize: 15, fontWeight: 700, color: '#0f172a', marginBottom: 4 },
   teamRole:  { fontSize: 12, color: '#64748b', marginBottom: 14 },
   teamLinks: { display: 'flex', justifyContent: 'center', gap: 10 },
   teamLink: {
-    width: 28, height: 28, borderRadius: '50%', background: 'rgba(148,163,184,0.1)',
+    width: 28, height: 28, borderRadius: '50%', background: 'rgba(37,99,235,0.08)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
-    color: '#94a3b8', fontSize: 11, fontWeight: 700, textDecoration: 'none',
+    color: '#2563eb', fontSize: 11, fontWeight: 700, textDecoration: 'none',
     transition: 'all 0.2s ease',
   },
 
   backedCard: {
-    background: '#0f172a', border: '1px solid rgba(148,163,184,0.1)',
+    background: '#ffffff', border: '1px solid rgba(37,99,235,0.1)',
     borderRadius: 16, padding: '36px 40px', textAlign: 'center',
+    boxShadow: '0 2px 8px rgba(37,99,235,0.05)',
   },
   backedLogos: { display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16 },
   backedItem: {
-    padding: '8px 22px', background: 'rgba(30,41,59,0.6)',
-    border: '1px solid rgba(148,163,184,0.15)', borderRadius: 999,
-    color: '#94a3b8', fontSize: 13, fontWeight: 600,
+    padding: '8px 22px', background: 'rgba(37,99,235,0.05)',
+    border: '1px solid rgba(37,99,235,0.12)', borderRadius: 999,
+    color: '#2563eb', fontSize: 13, fontWeight: 600,
   },
 };

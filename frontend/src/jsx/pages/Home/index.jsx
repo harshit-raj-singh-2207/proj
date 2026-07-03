@@ -498,64 +498,68 @@ export default function Home() {
    SHARED STYLES
 ══════════════════════════════════════════════════════════ */
 const s = {
-  section:   { padding:'100px 0', background:'#0f172a', fontFamily:'Inter,sans-serif' },
+  section:   { padding:'100px 0', background:'#ffffff', fontFamily:'Inter,sans-serif' },
   container: { maxWidth:1200, margin:'0 auto', padding:'0 24px' },
   hdr:       { textAlign:'center', marginBottom:56 },
   pill: {
     display:'inline-block', padding:'6px 18px', borderRadius:999,
-    background:'rgba(124,58,237,0.12)', border:'1px solid rgba(124,58,237,0.3)',
-    color:'#a78bfa', fontSize:12, fontWeight:700, letterSpacing:'0.06em',
+    background:'rgba(37,99,235,0.08)', border:'1px solid rgba(37,99,235,0.2)',
+    color:'#2563eb', fontSize:12, fontWeight:700, letterSpacing:'0.06em',
     textTransform:'uppercase', marginBottom:20,
   },
   h2: {
-    fontSize:'clamp(28px,4vw,44px)', fontWeight:900, color:'#f8fafc',
+    fontSize:'clamp(28px,4vw,44px)', fontWeight:900, color:'#0f172a',
     letterSpacing:'-0.035em', lineHeight:1.2, marginBottom:16,
   },
   grad: {
-    background:'linear-gradient(135deg,#a78bfa,#22d3ee)',
+    background:'linear-gradient(135deg,#2563eb,#0ea5e9)',
     WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text',
   },
-  lead: { color:'#94a3b8', fontSize:17, maxWidth:560, margin:'0 auto', lineHeight:1.7 },
+  lead: { color:'#64748b', fontSize:17, maxWidth:560, margin:'0 auto', lineHeight:1.7 },
 
   /* How It Works */
   stepCard: {
     flex:'1 1 280px', maxWidth:340,
-    background:'#0f172a', border:'1px solid rgba(148,163,184,0.1)',
+    background:'#ffffff', border:'1px solid rgba(37,99,235,0.12)',
     borderRadius:20, padding:32, position:'relative',
+    boxShadow:'0 2px 16px rgba(37,99,235,0.06)',
   },
-  stepNum:   { fontSize:12, fontWeight:800, color:'rgba(124,58,237,0.5)', letterSpacing:'0.1em', marginBottom:16 },
+  stepNum:   { fontSize:12, fontWeight:800, color:'rgba(37,99,235,0.4)', letterSpacing:'0.1em', marginBottom:16 },
   stepIcon:  { fontSize:36, marginBottom:16 },
-  stepTitle: { fontSize:18, fontWeight:800, color:'#f8fafc', marginBottom:10 },
-  stepDesc:  { fontSize:14, color:'#94a3b8', lineHeight:1.7, margin:0 },
+  stepTitle: { fontSize:18, fontWeight:800, color:'#0f172a', marginBottom:10 },
+  stepDesc:  { fontSize:14, color:'#64748b', lineHeight:1.7, margin:0 },
 
   /* Testimonials */
   tCard: {
-    background:'#0f172a', border:'1px solid rgba(148,163,184,0.1)',
+    background:'#ffffff', border:'1px solid rgba(37,99,235,0.1)',
     borderRadius:18, padding:28, display:'flex', flexDirection:'column',
     animation:'fadeInUp 0.5s ease both',
+    boxShadow:'0 2px 12px rgba(37,99,235,0.06)',
   },
-  tText:   { fontSize:14, color:'#94a3b8', lineHeight:1.75, margin:0, flex:1 },
+  tText:   { fontSize:14, color:'#475569', lineHeight:1.75, margin:0, flex:1 },
   tAvatar: { width:42, height:42, borderRadius:'50%', display:'flex', alignItems:'center',
     justifyContent:'center', fontSize:13, fontWeight:800, color:'#fff', flexShrink:0 },
-  tName:   { fontSize:14, fontWeight:700, color:'#f8fafc' },
-  tRole:   { fontSize:12, color:'#64748b', marginTop:2 },
+  tName:   { fontSize:14, fontWeight:700, color:'#0f172a' },
+  tRole:   { fontSize:12, color:'#94a3b8', marginTop:2 },
   tStars:  { color:'#f59e0b', fontSize:13, marginTop:16 },
 
   /* Pricing */
   priceCard: {
-    background:'#0f172a', borderRadius:20, padding:32,
+    background:'#ffffff', borderRadius:20, padding:32,
     display:'flex', flexDirection:'column', gap:12,
     position:'relative', transition:'all 0.25s ease', cursor:'default',
+    border:'1px solid rgba(37,99,235,0.12)',
+    boxShadow:'0 2px 16px rgba(37,99,235,0.06)',
   },
   popularBadge: {
     position:'absolute', top:20, right:20,
     padding:'4px 12px', borderRadius:999,
     fontSize:11, fontWeight:700, color:'#fff',
   },
-  priceNum:    { fontSize:36, fontWeight:900, color:'#f8fafc', lineHeight:1 },
-  pricePer:    { fontSize:14, fontWeight:500, color:'#64748b' },
+  priceNum:    { fontSize:36, fontWeight:900, color:'#0f172a', lineHeight:1 },
+  pricePer:    { fontSize:14, fontWeight:500, color:'#94a3b8' },
   featureList: { listStyle:'none', padding:0, margin:'8px 0', display:'flex', flexDirection:'column', gap:8, flex:1 },
-  featureItem: { fontSize:13, color:'#94a3b8', display:'flex', gap:8, alignItems:'center' },
+  featureItem: { fontSize:13, color:'#64748b', display:'flex', gap:8, alignItems:'center' },
   priceBtn: {
     display:'block', textAlign:'center', padding:'13px 24px',
     borderRadius:10, fontSize:14, fontWeight:700,
@@ -566,17 +570,18 @@ const s = {
 /* ── Extra styles for new sections ── */
 const s2 = {
   /* Stats */
-  statsSection: { padding:'90px 0', background:'#0a0f1e', fontFamily:'Inter,sans-serif' },
+  statsSection: { padding:'90px 0', background:'#f8faff', fontFamily:'Inter,sans-serif' },
   statsGrid: {
     display:'grid',
     gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',
     gap:20, marginTop:8,
   },
   statCard: {
-    background:'#0f172a', border:'1px solid rgba(148,163,184,0.1)',
+    background:'#ffffff', border:'1px solid rgba(37,99,235,0.1)',
     borderRadius:18, padding:'28px 24px', textAlign:'center',
     display:'flex', flexDirection:'column', alignItems:'center', gap:12,
     transition:'transform 0.25s ease, border-color 0.25s ease',
+    boxShadow:'0 2px 12px rgba(37,99,235,0.06)',
   },
   statIcon: {
     width:48, height:48, borderRadius:14, fontSize:22,
@@ -588,14 +593,14 @@ const s2 = {
   /* Marquee */
   marqueeSection: {
     padding:'40px 0',
-    background:'#030712',
-    borderTop:'1px solid rgba(148,163,184,0.06)',
-    borderBottom:'1px solid rgba(148,163,184,0.06)',
+    background:'#eff6ff',
+    borderTop:'1px solid rgba(37,99,235,0.08)',
+    borderBottom:'1px solid rgba(37,99,235,0.08)',
     overflow:'hidden',
     fontFamily:'Inter,sans-serif',
   },
   marqueeLabel: {
-    textAlign:'center', fontSize:12, color:'#475569', fontWeight:700,
+    textAlign:'center', fontSize:12, color:'#94a3b8', fontWeight:700,
     textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:20,
   },
   marqueeTrack: { overflow:'hidden', position:'relative' },
@@ -607,39 +612,40 @@ const s2 = {
   marqueeChip: {
     display:'inline-flex', alignItems:'center', gap:8,
     padding:'8px 20px',
-    background:'rgba(15,23,42,0.6)',
-    border:'1px solid rgba(148,163,184,0.1)',
+    background:'#ffffff',
+    border:'1px solid rgba(37,99,235,0.12)',
     borderRadius:999,
     whiteSpace:'nowrap',
     fontSize:13,
+    boxShadow:'0 1px 4px rgba(37,99,235,0.06)',
   },
 
   /* Comparison Table */
   table: { width:'100%', borderCollapse:'collapse', fontFamily:'Inter,sans-serif' },
   th: {
     padding:'14px 20px', textAlign:'center',
-    fontSize:13, fontWeight:800, color:'#94a3b8',
-    background:'rgba(15,23,42,0.95)',
-    borderBottom:'1px solid rgba(148,163,184,0.12)',
+    fontSize:13, fontWeight:800, color:'#64748b',
+    background:'#f8faff',
+    borderBottom:'1px solid rgba(37,99,235,0.1)',
     whiteSpace:'nowrap',
   },
   thFeature: {
     padding:'14px 24px', textAlign:'left',
-    fontSize:13, fontWeight:800, color:'#64748b',
-    background:'rgba(15,23,42,0.95)',
-    borderBottom:'1px solid rgba(148,163,184,0.12)',
+    fontSize:13, fontWeight:800, color:'#94a3b8',
+    background:'#f8faff',
+    borderBottom:'1px solid rgba(37,99,235,0.1)',
   },
   td: {
     padding:'13px 20px', textAlign:'center',
-    borderBottom:'1px solid rgba(148,163,184,0.06)',
+    borderBottom:'1px solid rgba(37,99,235,0.06)',
     fontSize:15,
   },
   tdFeature: {
     padding:'13px 24px', textAlign:'left',
-    borderBottom:'1px solid rgba(148,163,184,0.06)',
-    fontSize:13, color:'#94a3b8', fontWeight:500,
+    borderBottom:'1px solid rgba(37,99,235,0.06)',
+    fontSize:13, color:'#475569', fontWeight:500,
   },
-  cellYes:  { color:'#22c55e', fontWeight:800, fontSize:18 },
-  cellNo:   { color:'#ef444460', fontWeight:800, fontSize:18 },
-  cellWarn: { color:'#f59e0b', fontSize:13, fontWeight:700 },
+  cellYes:  { color:'#16a34a', fontWeight:800, fontSize:18 },
+  cellNo:   { color:'#dc262640', fontWeight:800, fontSize:18 },
+  cellWarn: { color:'#d97706', fontSize:13, fontWeight:700 },
 };
