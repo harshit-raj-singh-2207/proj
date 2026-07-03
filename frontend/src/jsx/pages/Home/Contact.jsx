@@ -2,18 +2,18 @@ import React, { useState, useRef } from 'react';
 
 /* ─── Data ──────────────────────────────────────────────── */
 const CONTACT_INFO = [
-  { icon: '📧', label: 'Email Us',      value: 'hello@careercopilot.ai',   sub: 'We reply within 4 hours' },
-  { icon: '📞', label: 'Call Us',       value: '+91 80 4567 8900',          sub: 'Mon–Fri, 9 AM–7 PM IST' },
-  { icon: '📍', label: 'Headquarters',  value: 'Koramangala, Bangalore',    sub: 'Karnataka, India — 560034' },
-  { icon: '💬', label: 'Live Chat',     value: 'Available in-app',          sub: 'Avg. response: 2 minutes' },
+  { icon: '📧', label: 'Email Us', value: 'h780538@gmail.com', sub: 'We reply within 4 hours' },
+  { icon: '📞', label: 'Call Us', value: '+91 8102566812', sub: 'Mon–Fri, 9 AM–7 PM IST' },
+  { icon: '📍', label: 'Headquarters', value: 'Banur,Punjab', sub: 'Punjab, India - 140601' },
+  { icon: '💬', label: 'Live Chat', value: 'Available in-app', sub: 'Avg. response: 2 minutes' },
 ];
 
 const SOCIALS = [
-  { label: 'LinkedIn', icon: 'in',  href: '#', color: '#0077b5' },
-  { label: 'Twitter',  icon: '𝕏',   href: '#', color: '#1da1f2' },
-  { label: 'YouTube',  icon: '▶',   href: '#', color: '#ef4444' },
-  { label: 'Discord',  icon: '◈',   href: '#', color: '#5865f2' },
-  { label: 'GitHub',   icon: '⌥',   href: '#', color: '#94a3b8' },
+  { label: 'LinkedIn', icon: 'in', href: '#', color: '#0077b5' },
+  { label: 'Twitter', icon: '𝕏', href: '#', color: '#1da1f2' },
+  { label: 'YouTube', icon: '▶', href: '#', color: '#ef4444' },
+  { label: 'Discord', icon: '◈', href: '#', color: '#5865f2' },
+  { label: 'GitHub', icon: '⌥', href: '#', color: '#94a3b8' },
 ];
 
 const SUBJECTS = [
@@ -29,18 +29,18 @@ const SUBJECTS = [
 export default function Contact() {
   const formRef = useRef(null);
 
-  const [form, setForm]       = useState({ name: '', email: '', subject: '', message: '' });
-  const [errors, setErrors]   = useState({});
-  const [status, setStatus]   = useState('idle'); // idle | loading | success | error
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState('idle'); // idle | loading | success | error
   const [focused, setFocused] = useState('');
 
   /* Validation */
   const validate = () => {
     const e = {};
-    if (!form.name.trim())                          e.name    = 'Name is required.';
+    if (!form.name.trim()) e.name = 'Name is required.';
     if (!form.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) e.email = 'Enter a valid email.';
-    if (!form.subject)                              e.subject = 'Please choose a subject.';
-    if (form.message.trim().length < 20)            e.message = 'Message must be at least 20 characters.';
+    if (!form.subject) e.subject = 'Please choose a subject.';
+    if (form.message.trim().length < 20) e.message = 'Message must be at least 20 characters.';
     return e;
   };
 
@@ -64,7 +64,7 @@ export default function Contact() {
   const fieldStyle = (field) => ({
     ...s.input,
     borderColor: errors[field] ? '#ef4444' : focused === field ? '#7c3aed' : 'rgba(148,163,184,0.2)',
-    boxShadow:   focused === field ? '0 0 0 3px rgba(124,58,237,0.18)' : 'none',
+    boxShadow: focused === field ? '0 0 0 3px rgba(124,58,237,0.18)' : 'none',
   });
 
   return (
@@ -250,7 +250,7 @@ export default function Contact() {
 
 /* ─── Styles ────────────────────────────────────────────── */
 const s = {
-  section:   { padding: '100px 0', background: '#030712', fontFamily: 'Inter,sans-serif' },
+  section: { padding: '100px 0', background: '#030712', fontFamily: 'Inter,sans-serif' },
   container: { maxWidth: 1200, margin: '0 auto', padding: '0 24px' },
 
   header: { textAlign: 'center', marginBottom: 56 },
@@ -267,16 +267,16 @@ const s = {
   mainGrid: { display: 'grid', gridTemplateColumns: '380px 1fr', gap: 32, alignItems: 'start' },
 
   /* Info column */
-  infoCol:   { display: 'flex', flexDirection: 'column', gap: 16 },
+  infoCol: { display: 'flex', flexDirection: 'column', gap: 16 },
   infoCards: { display: 'flex', flexDirection: 'column', gap: 12 },
   infoCard: {
     display: 'flex', alignItems: 'flex-start', gap: 14, padding: '16px 18px',
     background: '#0f172a', border: '1px solid rgba(148,163,184,0.1)', borderRadius: 14,
   },
-  infoIcon:  { fontSize: 22, flexShrink: 0, lineHeight: 1, marginTop: 2 },
+  infoIcon: { fontSize: 22, flexShrink: 0, lineHeight: 1, marginTop: 2 },
   infoLabel: { fontSize: 11, color: '#64748b', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 3 },
   infoValue: { fontSize: 14, color: '#f8fafc', fontWeight: 600, marginBottom: 2 },
-  infoSub:   { fontSize: 12, color: '#64748b' },
+  infoSub: { fontSize: 12, color: '#64748b' },
 
   socialBox: {
     background: '#0f172a', border: '1px solid rgba(148,163,184,0.1)',
@@ -297,19 +297,19 @@ const s = {
     borderRadius: 14, padding: '18px 20px',
   },
   hoursTitle: { fontSize: 14, color: '#f8fafc', fontWeight: 700, marginBottom: 14 },
-  hoursGrid:  { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 4px' },
-  hoursDay:   { fontSize: 12, color: '#64748b' },
-  hoursTime:  { fontSize: 12, color: '#94a3b8', fontWeight: 500 },
+  hoursGrid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 4px' },
+  hoursDay: { fontSize: 12, color: '#64748b' },
+  hoursTime: { fontSize: 12, color: '#94a3b8', fontWeight: 500 },
 
   /* Form card */
   formCard: {
     background: '#0f172a', border: '1px solid rgba(148,163,184,0.12)',
     borderRadius: 20, padding: 36,
   },
-  formTitle:    { fontSize: 22, fontWeight: 800, color: '#f8fafc', marginBottom: 4, letterSpacing: '-0.02em' },
+  formTitle: { fontSize: 22, fontWeight: 800, color: '#f8fafc', marginBottom: 4, letterSpacing: '-0.02em' },
   formSubtitle: { fontSize: 13, color: '#64748b', marginBottom: 28 },
 
-  row:   { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 },
+  row: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 },
   field: { display: 'flex', flexDirection: 'column', marginBottom: 18 },
   fieldLabel: {
     fontSize: 12, fontWeight: 700, color: '#94a3b8', marginBottom: 8,
@@ -346,9 +346,9 @@ const s = {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
     justifyContent: 'center', textAlign: 'center', padding: '48px 24px', gap: 16,
   },
-  successIcon:  { fontSize: 52 },
+  successIcon: { fontSize: 52 },
   successTitle: { fontSize: 24, fontWeight: 800, color: '#f8fafc' },
-  successText:  { fontSize: 15, color: '#94a3b8', lineHeight: 1.7, maxWidth: 360, margin: '0 auto' },
+  successText: { fontSize: 15, color: '#94a3b8', lineHeight: 1.7, maxWidth: 360, margin: '0 auto' },
 
   faqStrip: {
     marginTop: 56, padding: '24px', background: '#0f172a',

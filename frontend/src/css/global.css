@@ -32,12 +32,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: auto; /* ensure vertical scroll is never blocked */
 }
 
 #root {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 /* ─── Typography ─────────────────────────────────────────── */

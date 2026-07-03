@@ -172,6 +172,198 @@ function Pricing() {
 }
 
 /* ══════════════════════════════════════════════════════════
+   STATS COUNTER
+══════════════════════════════════════════════════════════ */
+const STATS = [
+  { value: 2400000, suffix: '+', label: 'Professionals Onboarded',    icon: '👥', color: '#7c3aed' },
+  { value: 96,      suffix: '%', label: 'Placement Rate (2024)',       icon: '🎯', color: '#06b6d4' },
+  { value: 500,     suffix: '+', label: 'DSA Problems Curated',        icon: '💻', color: '#22c55e' },
+  { value: 8,       suffix: 's', label: 'Avg. Resume Score Time',      icon: '⚡', color: '#f59e0b' },
+  { value: 12000,   suffix: '+', label: 'Verified 5-Star Reviews',     icon: '★',  color: '#ec4899' },
+  { value: 40,      suffix: '%', label: 'Avg. Salary Hike Negotiated', icon: '📈', color: '#8b5cf6' },
+];
+
+function useCountUp(target, duration = 2000, active = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!active) return;
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= target) { setCount(target); clearInterval(timer); }
+      else setCount(Math.floor(start));
+    }, 16);
+    return () => clearInterval(timer);
+  }, [active, target, duration]);
+  return count;
+}
+
+function StatItem({ stat, active }) {
+  const count = useCountUp(stat.value, 2000, active);
+  const display = stat.value >= 1000000
+    ? (count / 1000000).toFixed(1) + 'M'
+    : stat.value >= 1000
+    ? (count / 1000).toFixed(0) + 'K'
+    : count;
+  return (
+    <div style={s2.statCard}>
+      <span style={{ ...s2.statIcon, background: `${stat.color}20`, border: `1px solid ${stat.color}40` }}>
+        {stat.icon}
+      </span>
+      <div style={{ ...s2.statNum, color: stat.color }}>
+        {display}{stat.suffix}
+      </div>
+      <div style={s2.statLabel}>{stat.label}</div>
+    </div>
+  );
+}
+
+function StatsSection() {
+  const ref = useRef(null);
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setActive(true); }, { threshold: 0.3 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <section ref={ref} style={s2.statsSection}>
+      <div style={s.container}>
+        <div style={s.hdr}>
+          <span style={s.pill}>By The Numbers</span>
+          <h2 style={s.h2}>Impact that <span style={s.grad}>speaks for itself</span></h2>
+          <p style={s.lead}>Real outcomes from real users — tracked, verified, and growing every day.</p>
+        </div>
+        <div style={s2.statsGrid}>
+          {STATS.map(stat => <StatItem key={stat.label} stat={stat} active={active} />)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   MARQUEE TICKER
+══════════════════════════════════════════════════════════ */
+const COMPANIES = [
+  { name: 'Google',     emoji: '🔵' },
+  { name: 'Microsoft',  emoji: '🪟' },
+  { name: 'Amazon',     emoji: '📦' },
+  { name: 'Meta',       emoji: '🔷' },
+  { name: 'Apple',      emoji: '🍎' },
+  { name: 'Flipkart',   emoji: '🛒' },
+  { name: 'Razorpay',   emoji: '💳' },
+  { name: 'Swiggy',     emoji: '🧡' },
+  { name: 'CRED',       emoji: '💎' },
+  { name: 'Zomato',     emoji: '🍕' },
+  { name: 'PhonePe',    emoji: '📱' },
+  { name: 'Meesho',     emoji: '🛍️' },
+  { name: 'Infosys',    emoji: '🏢' },
+  { name: 'Wipro',      emoji: '🌐' },
+  { name: 'TCS',        emoji: '💼' },
+  { name: 'Accenture',  emoji: '⟩' },
+];
+
+function Marquee() {
+  const doubled = [...COMPANIES, ...COMPANIES];
+  return (
+    <section style={s2.marqueeSection}>
+      <p style={s2.marqueeLabel}>🏆 Our users work at the world's best companies</p>
+      <div style={s2.marqueeTrack}>
+        <div style={s2.marqueeInner}>
+          {doubled.map((c, i) => (
+            <span key={i} style={s2.marqueeChip}>
+              <span>{c.emoji}</span>
+              <span style={{ color: '#94a3b8', fontWeight: 600, fontSize: 13 }}>{c.name}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+      {/* inject marquee keyframe once */}
+      <style>{`
+        @keyframes marqueeScroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
+   COMPARISON TABLE
+══════════════════════════════════════════════════════════ */
+const COMPARE_ROWS = [
+  { feature: 'AI Resume Analyzer',          us: true,  linkedin: '⚠️', naukri: '⚠️', indeed: false },
+  { feature: 'ATS Keyword Checker',         us: true,  linkedin: false, naukri: false, indeed: false },
+  { feature: 'AI Mock Interviews',          us: true,  linkedin: false, naukri: false, indeed: false },
+  { feature: 'DSA Coding Practice (500+)',  us: true,  linkedin: false, naukri: false, indeed: false },
+  { feature: 'Career Roadmap (AI)',         us: true,  linkedin: false, naukri: false, indeed: false },
+  { feature: 'Salary Analytics (live)',     us: true,  linkedin: '⚠️', naukri: '⚠️', indeed: '⚠️' },
+  { feature: 'AI Career Digital Twin',      us: true,  linkedin: false, naukri: false, indeed: false },
+  { feature: 'Recruiter Portal',            us: true,  linkedin: true,  naukri: true,  indeed: true  },
+  { feature: 'Free Tier Available',         us: true,  linkedin: true,  naukri: true,  indeed: true  },
+  { feature: 'India-first (INR pricing)',   us: true,  linkedin: false, naukri: true,  indeed: false },
+];
+
+function CompareCell({ val }) {
+  if (val === true)  return <span style={s2.cellYes}>✓</span>;
+  if (val === false) return <span style={s2.cellNo}>✗</span>;
+  return <span style={s2.cellWarn}>{val}</span>;
+}
+
+function ComparisonTable() {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true); }, { threshold: 0.15 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <section ref={ref} style={{ ...s.section, background: '#030712',
+      opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(32px)',
+      transition: 'all 0.7s ease' }}>
+      <div style={s.container}>
+        <div style={s.hdr}>
+          <span style={s.pill}>Why Us</span>
+          <h2 style={s.h2}>CareerCopilot vs <span style={s.grad}>the rest</span></h2>
+          <p style={s.lead}>We built everything job seekers actually need — not just a job board with an AI badge.</p>
+        </div>
+        <div style={{ overflowX: 'auto', borderRadius: 18, border: '1px solid rgba(148,163,184,0.1)' }}>
+          <table style={s2.table}>
+            <thead>
+              <tr>
+                <th style={s2.thFeature}>Feature</th>
+                <th style={{ ...s2.th, color: '#a78bfa' }}>CareerCopilot ✦</th>
+                <th style={s2.th}>LinkedIn</th>
+                <th style={s2.th}>Naukri</th>
+                <th style={s2.th}>Indeed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPARE_ROWS.map((row, i) => (
+                <tr key={row.feature} style={{ background: i % 2 === 0 ? 'rgba(15,23,42,0.4)' : 'transparent' }}>
+                  <td style={s2.tdFeature}>{row.feature}</td>
+                  <td style={{ ...s2.td, background: 'rgba(124,58,237,0.06)' }}><CompareCell val={row.us} /></td>
+                  <td style={s2.td}><CompareCell val={row.linkedin} /></td>
+                  <td style={s2.td}><CompareCell val={row.naukri} /></td>
+                  <td style={s2.td}><CompareCell val={row.indeed} /></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p style={{ textAlign: 'center', color: '#475569', fontSize: 12, marginTop: 16 }}>
+          ⚠️ = partial / limited feature &nbsp;·&nbsp; Data based on publicly available information, {new Date().getFullYear()}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ══════════════════════════════════════════════════════════
    FINAL CTA BANNER
 ══════════════════════════════════════════════════════════ */
 function CTABanner() {
@@ -287,9 +479,12 @@ export default function Home() {
     <>
       <ScrollBar />
       <Hero />
+      <StatsSection />
       <HowItWorks />
       <Features />
+      <Marquee />
       <Testimonials />
+      <ComparisonTable />
       <Pricing />
       <About />
       <CTABanner />
@@ -366,4 +561,85 @@ const s = {
     borderRadius:10, fontSize:14, fontWeight:700,
     textDecoration:'none', marginTop:8, transition:'opacity 0.2s ease',
   },
+};
+
+/* ── Extra styles for new sections ── */
+const s2 = {
+  /* Stats */
+  statsSection: { padding:'90px 0', background:'#0a0f1e', fontFamily:'Inter,sans-serif' },
+  statsGrid: {
+    display:'grid',
+    gridTemplateColumns:'repeat(auto-fit,minmax(180px,1fr))',
+    gap:20, marginTop:8,
+  },
+  statCard: {
+    background:'#0f172a', border:'1px solid rgba(148,163,184,0.1)',
+    borderRadius:18, padding:'28px 24px', textAlign:'center',
+    display:'flex', flexDirection:'column', alignItems:'center', gap:12,
+    transition:'transform 0.25s ease, border-color 0.25s ease',
+  },
+  statIcon: {
+    width:48, height:48, borderRadius:14, fontSize:22,
+    display:'flex', alignItems:'center', justifyContent:'center',
+  },
+  statNum: { fontSize:'clamp(28px,3vw,40px)', fontWeight:900, letterSpacing:'-0.04em', lineHeight:1 },
+  statLabel: { fontSize:13, color:'#64748b', fontWeight:600, lineHeight:1.4, textAlign:'center' },
+
+  /* Marquee */
+  marqueeSection: {
+    padding:'40px 0',
+    background:'#030712',
+    borderTop:'1px solid rgba(148,163,184,0.06)',
+    borderBottom:'1px solid rgba(148,163,184,0.06)',
+    overflow:'hidden',
+    fontFamily:'Inter,sans-serif',
+  },
+  marqueeLabel: {
+    textAlign:'center', fontSize:12, color:'#475569', fontWeight:700,
+    textTransform:'uppercase', letterSpacing:'0.08em', marginBottom:20,
+  },
+  marqueeTrack: { overflow:'hidden', position:'relative' },
+  marqueeInner: {
+    display:'flex', gap:12,
+    width:'max-content',
+    animation:'marqueeScroll 30s linear infinite',
+  },
+  marqueeChip: {
+    display:'inline-flex', alignItems:'center', gap:8,
+    padding:'8px 20px',
+    background:'rgba(15,23,42,0.6)',
+    border:'1px solid rgba(148,163,184,0.1)',
+    borderRadius:999,
+    whiteSpace:'nowrap',
+    fontSize:13,
+  },
+
+  /* Comparison Table */
+  table: { width:'100%', borderCollapse:'collapse', fontFamily:'Inter,sans-serif' },
+  th: {
+    padding:'14px 20px', textAlign:'center',
+    fontSize:13, fontWeight:800, color:'#94a3b8',
+    background:'rgba(15,23,42,0.95)',
+    borderBottom:'1px solid rgba(148,163,184,0.12)',
+    whiteSpace:'nowrap',
+  },
+  thFeature: {
+    padding:'14px 24px', textAlign:'left',
+    fontSize:13, fontWeight:800, color:'#64748b',
+    background:'rgba(15,23,42,0.95)',
+    borderBottom:'1px solid rgba(148,163,184,0.12)',
+  },
+  td: {
+    padding:'13px 20px', textAlign:'center',
+    borderBottom:'1px solid rgba(148,163,184,0.06)',
+    fontSize:15,
+  },
+  tdFeature: {
+    padding:'13px 24px', textAlign:'left',
+    borderBottom:'1px solid rgba(148,163,184,0.06)',
+    fontSize:13, color:'#94a3b8', fontWeight:500,
+  },
+  cellYes:  { color:'#22c55e', fontWeight:800, fontSize:18 },
+  cellNo:   { color:'#ef444460', fontWeight:800, fontSize:18 },
+  cellWarn: { color:'#f59e0b', fontSize:13, fontWeight:700 },
 };

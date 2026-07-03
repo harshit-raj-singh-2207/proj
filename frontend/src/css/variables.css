@@ -1,52 +1,52 @@
 /* ============================================================
-   CareerCopilot — Design Tokens
+   CareerCopilot — Design Tokens (White & Blue Theme)
    ============================================================ */
 :root {
   /* Brand */
-  --primary:        #7c3aed;
-  --primary-light:  #8b5cf6;
-  --primary-dark:   #6d28d9;
-  --primary-glow:   rgba(124, 58, 237, 0.35);
-  --secondary:      #06b6d4;
-  --secondary-light:#22d3ee;
-  --secondary-dark: #0891b2;
-  --secondary-glow: rgba(6, 182, 212, 0.35);
+  --primary:        #2563eb;
+  --primary-light:  #3b82f6;
+  --primary-dark:   #1d4ed8;
+  --primary-glow:   rgba(37, 99, 235, 0.25);
+  --secondary:      #0ea5e9;
+  --secondary-light:#38bdf8;
+  --secondary-dark: #0284c7;
+  --secondary-glow: rgba(14, 165, 233, 0.25);
 
   /* Gradients */
-  --gradient-brand:  linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
-  --gradient-brand-r:linear-gradient(135deg, #06b6d4 0%, #7c3aed 100%);
-  --gradient-hero:   linear-gradient(135deg, #0f0720 0%, #030712 50%, #061020 100%);
-  --gradient-card:   linear-gradient(135deg, rgba(124,58,237,.08) 0%, rgba(6,182,212,.08) 100%);
-  --gradient-text:   linear-gradient(135deg, #a78bfa 0%, #34d399 50%, #38bdf8 100%);
+  --gradient-brand:  linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  --gradient-brand-r:linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+  --gradient-hero:   linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f0f9ff 100%);
+  --gradient-card:   linear-gradient(135deg, rgba(37,99,235,.05) 0%, rgba(14,165,233,.05) 100%);
+  --gradient-text:   linear-gradient(135deg, #2563eb 0%, #0ea5e9 50%, #38bdf8 100%);
 
   /* Backgrounds */
-  --bg-base:      #030712;
-  --bg-surface:   #0f172a;
-  --bg-surface-2: #1e293b;
-  --bg-surface-3: #273549;
-  --bg-glass:     rgba(15, 23, 42, 0.6);
-  --bg-glass-light:rgba(30, 41, 59, 0.5);
+  --bg-base:      #ffffff;
+  --bg-surface:   #f8faff;
+  --bg-surface-2: #eff6ff;
+  --bg-surface-3: #dbeafe;
+  --bg-glass:     rgba(255, 255, 255, 0.7);
+  --bg-glass-light:rgba(255, 255, 255, 0.5);
 
   /* Borders */
-  --border:        rgba(148, 163, 184, 0.12);
-  --border-strong: rgba(148, 163, 184, 0.25);
-  --border-brand:  rgba(124, 58, 237, 0.4);
+  --border:        rgba(37, 99, 235, 0.12);
+  --border-strong: rgba(37, 99, 235, 0.25);
+  --border-brand:  rgba(37, 99, 235, 0.4);
 
   /* Text */
-  --text-primary:   #f8fafc;
-  --text-secondary: #cbd5e1;
+  --text-primary:   #0f172a;
+  --text-secondary: #334155;
   --text-muted:     #64748b;
-  --text-brand:     #a78bfa;
+  --text-brand:     #2563eb;
 
   /* Status */
-  --success:    #22c55e;
-  --success-bg: rgba(34, 197, 94, 0.1);
-  --warning:    #f59e0b;
-  --warning-bg: rgba(245, 158, 11, 0.1);
-  --error:      #ef4444;
-  --error-bg:   rgba(239, 68, 68, 0.1);
-  --info:       #38bdf8;
-  --info-bg:    rgba(56, 189, 248, 0.1);
+  --success:    #16a34a;
+  --success-bg: rgba(22, 163, 74, 0.08);
+  --warning:    #d97706;
+  --warning-bg: rgba(217, 119, 6, 0.08);
+  --error:      #dc2626;
+  --error-bg:   rgba(220, 38, 38, 0.08);
+  --info:       #0ea5e9;
+  --info-bg:    rgba(14, 165, 233, 0.08);
 
   /* Typography */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -93,12 +93,12 @@
   --radius-full:9999px;
 
   /* Shadows */
-  --shadow-sm:    0 2px 8px rgba(0,0,0,0.3);
-  --shadow:       0 4px 20px rgba(0,0,0,0.4);
-  --shadow-lg:    0 8px 40px rgba(0,0,0,0.5);
-  --shadow-brand: 0 0 30px rgba(124, 58, 237, 0.25);
-  --shadow-cyan:  0 0 30px rgba(6, 182, 212, 0.2);
-  --shadow-card:  0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(148,163,184,0.08);
+  --shadow-sm:    0 2px 8px rgba(37,99,235,0.08);
+  --shadow:       0 4px 20px rgba(37,99,235,0.12);
+  --shadow-lg:    0 8px 40px rgba(37,99,235,0.16);
+  --shadow-brand: 0 0 30px rgba(37, 99, 235, 0.2);
+  --shadow-cyan:  0 0 30px rgba(14, 165, 233, 0.15);
+  --shadow-card:  0 4px 24px rgba(37,99,235,0.08), 0 0 0 1px rgba(37,99,235,0.06);
 
   /* Layout */
   --navbar-height:     68px;

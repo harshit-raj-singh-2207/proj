@@ -136,9 +136,9 @@ const Sidebar = () => {
 
 /* ─── Layouts ───────────────────────────────────────────── */
 const PublicLayout = () => (
-  <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+  <div style={{ minHeight: '100vh' }}>
     <Navbar />
-    <main style={{ flex: 1 }}>
+    <main>
       <Outlet />
     </main>
   </div>
