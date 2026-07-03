@@ -211,9 +211,10 @@ const S = {
   /* Navbar */
   nav: {
     position: 'sticky', top: 0, zIndex: 200,
-    height: 68, background: 'rgba(3,7,18,0.85)',
+    height: 68, background: 'rgba(255,255,255,0.95)',
     backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)',
-    borderBottom: '1px solid rgba(148,163,184,0.12)',
+    borderBottom: '1px solid rgba(37,99,235,0.1)',
+    boxShadow: '0 1px 12px rgba(37,99,235,0.06)',
   },
   navInner: {
     maxWidth: 1280, margin: '0 auto', padding: '0 24px',
@@ -222,33 +223,34 @@ const S = {
   logo: { display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0 },
   logoMark: {
     width: 36, height: 36, borderRadius: 10,
-    background: 'linear-gradient(135deg,#7c3aed,#06b6d4)',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     color: '#fff', fontWeight: 900, fontSize: 14,
   },
-  logoText: { color: '#f8fafc', fontWeight: 700, fontSize: 18, letterSpacing: '-0.02em' },
+  logoText: { color: '#0f172a', fontWeight: 800, fontSize: 18, letterSpacing: '-0.02em' },
   navLinks: { display: 'flex', alignItems: 'center', gap: 4, flex: 1 },
   navLink: {
-    color: '#94a3b8', fontWeight: 500, fontSize: 14,
+    color: '#64748b', fontWeight: 500, fontSize: 14,
     padding: '6px 14px', borderRadius: 8, textDecoration: 'none',
     transition: 'all 150ms ease',
   },
-  navLinkActive: { color: '#f8fafc', background: 'rgba(124,58,237,0.15)' },
+  navLinkActive: { color: '#2563eb', background: 'rgba(37,99,235,0.08)' },
   navActions: { display: 'flex', alignItems: 'center', gap: 10 },
   navBtnOutline: {
-    padding: '8px 18px', borderRadius: 8, border: '1px solid rgba(148,163,184,0.25)',
-    background: 'none', color: '#cbd5e1', fontWeight: 600, fontSize: 13,
+    padding: '8px 18px', borderRadius: 8, border: '1px solid rgba(37,99,235,0.3)',
+    background: 'none', color: '#2563eb', fontWeight: 600, fontSize: 13,
     cursor: 'pointer', textDecoration: 'none', transition: 'all 150ms ease',
   },
   navBtnPrimary: {
     padding: '8px 18px', borderRadius: 8, border: 'none',
-    background: 'linear-gradient(135deg,#7c3aed,#06b6d4)',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     color: '#fff', fontWeight: 700, fontSize: 13,
     cursor: 'pointer', textDecoration: 'none',
+    boxShadow: '0 2px 12px rgba(37,99,235,0.3)',
   },
   navBtn: {
     width: 34, height: 34, borderRadius: '50%',
-    background: 'linear-gradient(135deg,#7c3aed,#06b6d4)',
+    background: 'linear-gradient(135deg,#2563eb,#0ea5e9)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     color: '#fff', fontWeight: 700, fontSize: 14, textDecoration: 'none',
   },
@@ -256,38 +258,38 @@ const S = {
   /* Sidebar */
   sidebar: {
     width: 260, flexShrink: 0, minHeight: '100vh',
-    background: '#0f172a', borderRight: '1px solid rgba(148,163,184,0.12)',
+    background: '#f8faff', borderRight: '1px solid rgba(37,99,235,0.1)',
     position: 'sticky', top: 0, height: '100vh', overflowY: 'auto',
   },
   sidebarInner: { padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: 2 },
   sideLink: {
     display: 'flex', alignItems: 'center', gap: 12,
     padding: '10px 14px', borderRadius: 10,
-    color: '#94a3b8', fontSize: 13, fontWeight: 500,
+    color: '#64748b', fontSize: 13, fontWeight: 500,
     textDecoration: 'none', transition: 'all 150ms ease',
   },
   sideLinkActive: {
-    background: 'rgba(124,58,237,0.15)', color: '#a78bfa',
-    borderLeft: '3px solid #7c3aed', paddingLeft: 11,
+    background: 'rgba(37,99,235,0.1)', color: '#2563eb',
+    borderLeft: '3px solid #2563eb', paddingLeft: 11,
   },
   sideIcon:  { fontSize: 16, width: 20, textAlign: 'center', flexShrink: 0 },
   sideLabel: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' },
 
   /* Dashboard main */
-  dashMain: { flex: 1, padding: 32, background: '#030712', overflowY: 'auto' },
+  dashMain: { flex: 1, padding: 32, background: '#f8faff', overflowY: 'auto' },
 
   /* Auth */
   authWrap: {
     minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
-    background: '#030712', padding: 24,
+    background: '#f8faff', padding: 24,
   },
 
   /* Loader */
   loader: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '60vh' },
   loaderRing: {
     width: 44, height: 44, borderRadius: '50%',
-    border: '3px solid rgba(124,58,237,0.2)',
-    borderTopColor: '#7c3aed',
+    border: '3px solid rgba(37,99,235,0.15)',
+    borderTopColor: '#2563eb',
     animation: 'spin 0.8s linear infinite',
   },
 
@@ -296,6 +298,6 @@ const S = {
     display: 'flex', flexDirection: 'column', alignItems: 'center',
     justifyContent: 'center', height: '60vh', gap: 16, textAlign: 'center',
   },
-  comingTitle: { color: '#f8fafc', fontFamily: 'Inter,sans-serif', fontSize: 22, fontWeight: 700 },
+  comingTitle: { color: '#0f172a', fontFamily: 'Inter,sans-serif', fontSize: 22, fontWeight: 700 },
   comingText:  { color: '#64748b', fontFamily: 'Inter,sans-serif', fontSize: 14 },
 };

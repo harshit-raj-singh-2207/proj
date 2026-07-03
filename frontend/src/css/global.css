@@ -27,12 +27,12 @@ body {
   font-weight: var(--font-regular);
   line-height: 1.6;
   color: var(--text-primary);
-  background-color: var(--bg-base);
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto; /* ensure vertical scroll is never blocked */
+  overflow-y: auto;
 }
 
 #root {
@@ -238,16 +238,16 @@ tr:hover td { background: var(--bg-surface-2); }
 
 /* ─── Scrollbar ──────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-surface-3);
+  background: #bfdbfe;
   border-radius: var(--radius-full);
 }
-::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+::-webkit-scrollbar-thumb:hover { background: #93c5fd; }
 
 /* ─── Text Selection ─────────────────────────────────────── */
 ::selection {
-  background: rgba(124, 58, 237, 0.35);
+  background: rgba(37, 99, 235, 0.2);
   color: var(--text-primary);
 }
 
@@ -386,11 +386,11 @@ tr:hover td { background: var(--bg-surface-2); }
   letter-spacing: 0.03em;
   white-space: nowrap;
 }
-.badge-primary  { background: rgba(124,58,237,0.15); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
-.badge-cyan     { background: rgba(6,182,212,0.15);  color: #22d3ee; border: 1px solid rgba(6,182,212,0.3); }
-.badge-success  { background: var(--success-bg);     color: var(--success); border: 1px solid rgba(34,197,94,0.3); }
-.badge-warning  { background: var(--warning-bg);     color: var(--warning); border: 1px solid rgba(245,158,11,0.3); }
-.badge-error    { background: var(--error-bg);       color: var(--error);   border: 1px solid rgba(239,68,68,0.3); }
+.badge-primary  { background: rgba(37,99,235,0.1);  color: #2563eb; border: 1px solid rgba(37,99,235,0.25); }
+.badge-cyan     { background: rgba(14,165,233,0.1);  color: #0ea5e9; border: 1px solid rgba(14,165,233,0.25); }
+.badge-success  { background: var(--success-bg);     color: var(--success); border: 1px solid rgba(22,163,74,0.25); }
+.badge-warning  { background: var(--warning-bg);     color: var(--warning); border: 1px solid rgba(217,119,6,0.25); }
+.badge-error    { background: var(--error-bg);       color: var(--error);   border: 1px solid rgba(220,38,38,0.25); }
 .badge-muted    { background: var(--bg-surface-2);   color: var(--text-muted); border: 1px solid var(--border); }
 
 /* ─── Divider ────────────────────────────────────────────── */

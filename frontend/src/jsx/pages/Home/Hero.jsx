@@ -34,7 +34,7 @@ function ParticleCanvas() {
       r:  Math.random() * 1.6 + 0.4,
       vx: (Math.random() - 0.5) * 0.28,
       vy: (Math.random() - 0.5) * 0.28,
-      o:  Math.random() * 0.5 + 0.15,
+      o:  Math.random() * 0.4 + 0.1,
     }));
 
     const draw = () => {
@@ -45,7 +45,7 @@ function ParticleCanvas() {
         if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(139,92,246,${p.o})`;
+        ctx.fillStyle = `rgba(37,99,235,${p.o})`;
         ctx.fill();
       }
       /* connections */
@@ -57,7 +57,7 @@ function ParticleCanvas() {
             ctx.beginPath();
             ctx.moveTo(pts[i].x, pts[i].y);
             ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = `rgba(124,58,237,${0.13 * (1 - dist / 130)})`;
+            ctx.strokeStyle = `rgba(37,99,235,${0.1 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -113,11 +113,11 @@ function useTypewriter(words, speed = 80, pause = 1800) {
 
 /* ─── Social proof avatars ───────────────────────────────── */
 const AVATARS = [
-  'linear-gradient(135deg,#7c3aed,#8b5cf6)',
-  'linear-gradient(135deg,#06b6d4,#22d3ee)',
-  'linear-gradient(135deg,#ec4899,#f472b6)',
-  'linear-gradient(135deg,#22c55e,#4ade80)',
-  'linear-gradient(135deg,#f59e0b,#fbbf24)',
+  'linear-gradient(135deg,#2563eb,#3b82f6)',
+  'linear-gradient(135deg,#0ea5e9,#38bdf8)',
+  'linear-gradient(135deg,#6366f1,#818cf8)',
+  'linear-gradient(135deg,#0284c7,#0ea5e9)',
+  'linear-gradient(135deg,#1d4ed8,#3b82f6)',
 ];
 
 /* ─── Floating badge ─────────────────────────────────────── */
@@ -149,8 +149,8 @@ export default function Hero() {
       <ParticleCanvas />
 
       {/* ── Radial glows ── */}
-      <div style={s.glowPurple} aria-hidden="true" />
-      <div style={s.glowCyan}   aria-hidden="true" />
+      <div style={s.glowBlue}   aria-hidden="true" />
+      <div style={s.glowSky}    aria-hidden="true" />
       <div style={s.gridLines}  aria-hidden="true" />
 
       {/* ── Floating badges ── */}
@@ -219,11 +219,11 @@ export default function Hero() {
           </div>
           <div>
             <div style={s.socialCount}>
-              <strong style={{ color: '#f8fafc' }}>2.4M+</strong> professionals trust CareerCopilot
+              <strong style={{ color: '#0f172a' }}>2.4M+</strong> professionals trust CareerCopilot
             </div>
             <div style={s.socialRating}>
               {'★★★★★'}&nbsp;
-              <span style={{ color: '#64748b' }}>4.9/5 from 12,000+ reviews</span>
+              <span style={{ color: '#94a3b8' }}>4.9/5 from 12,000+ reviews</span>
             </div>
           </div>
         </div>
@@ -270,7 +270,7 @@ function CTAButton({ href, primary, children }) {
 
 /* ─── Styles ─────────────────────────────────────────────── */
 const s = {
-  /* Section */
+  /* Section — light hero with subtle blue tint */
   section: {
     position: 'relative',
     minHeight: '100vh',
@@ -279,25 +279,25 @@ const s = {
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    background: '#030712',
+    background: 'linear-gradient(160deg, #eff6ff 0%, #ffffff 50%, #f0f9ff 100%)',
     fontFamily: 'Inter, sans-serif',
     padding: '120px 24px 80px',
   },
 
   /* Glows */
-  glowPurple: {
+  glowBlue: {
     position: 'absolute',
     top: '-10%', left: '50%',
     transform: 'translateX(-50%)',
     width: 900, height: 600,
-    background: 'radial-gradient(ellipse at center, rgba(124,58,237,0.18) 0%, transparent 70%)',
+    background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 70%)',
     pointerEvents: 'none',
   },
-  glowCyan: {
+  glowSky: {
     position: 'absolute',
     bottom: '-5%', right: '-5%',
     width: 600, height: 500,
-    background: 'radial-gradient(ellipse at center, rgba(6,182,212,0.12) 0%, transparent 70%)',
+    background: 'radial-gradient(ellipse at center, rgba(14,165,233,0.1) 0%, transparent 70%)',
     pointerEvents: 'none',
   },
 
@@ -305,7 +305,7 @@ const s = {
   gridLines: {
     position: 'absolute', inset: 0,
     backgroundImage:
-      'linear-gradient(rgba(148,163,184,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.035) 1px, transparent 1px)',
+      'linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px)',
     backgroundSize: '60px 60px',
     pointerEvents: 'none',
   },
@@ -314,20 +314,20 @@ const s = {
   floatBadge: {
     position: 'absolute',
     display: 'flex', alignItems: 'center', gap: 10,
-    background: 'rgba(15,23,42,0.85)',
-    border: '1px solid rgba(148,163,184,0.15)',
+    background: 'rgba(255,255,255,0.9)',
+    border: '1px solid rgba(37,99,235,0.15)',
     borderRadius: 14,
     padding: '10px 16px',
     backdropFilter: 'blur(12px)',
     WebkitBackdropFilter: 'blur(12px)',
-    boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+    boxShadow: '0 4px 24px rgba(37,99,235,0.1)',
     zIndex: 10,
   },
   badge1: { top: '18%',  left: '6%',  animation: 'float1 6s ease-in-out infinite' },
   badge2: { top: '22%',  right: '6%', animation: 'float2 7s ease-in-out infinite' },
   badge3: { bottom: '18%', right: '5%', animation: 'float1 8s ease-in-out infinite reverse' },
   floatIcon: { fontSize: 22 },
-  floatText: { fontSize: 13, fontWeight: 700, color: '#f8fafc' },
+  floatText: { fontSize: 13, fontWeight: 700, color: '#0f172a' },
   floatSub:  { fontSize: 11, color: '#64748b', marginTop: 1 },
 
   /* Inner */
@@ -343,15 +343,15 @@ const s = {
   pill: {
     display: 'inline-flex', alignItems: 'center', gap: 8,
     padding: '7px 18px', borderRadius: 999,
-    background: 'rgba(124,58,237,0.12)',
-    border: '1px solid rgba(124,58,237,0.3)',
-    color: '#a78bfa', fontSize: 13, fontWeight: 600,
+    background: 'rgba(37,99,235,0.08)',
+    border: '1px solid rgba(37,99,235,0.2)',
+    color: '#2563eb', fontSize: 13, fontWeight: 600,
     cursor: 'default',
   },
   pillDot: {
     width: 7, height: 7, borderRadius: '50%',
-    background: '#a78bfa',
-    boxShadow: '0 0 6px #a78bfa',
+    background: '#2563eb',
+    boxShadow: '0 0 6px #2563eb',
     animation: 'pulse 2s ease-in-out infinite',
   },
   pillArrow: { opacity: 0.7 },
@@ -362,11 +362,11 @@ const s = {
     fontWeight: 900,
     lineHeight: 1.1,
     letterSpacing: '-0.035em',
-    color: '#f8fafc',
+    color: '#0f172a',
     margin: 0,
   },
   gradText: {
-    background: 'linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%)',
+    background: 'linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
@@ -374,15 +374,14 @@ const s = {
   cursor: {
     display: 'inline-block',
     animation: 'blink 1s step-end infinite',
-    WebkitTextFillColor: '#a78bfa',
+    WebkitTextFillColor: '#2563eb',
   },
   underlineText: {
     position: 'relative',
     display: 'inline-block',
-    color: '#f8fafc',
-    /* SVG underline added via pseudo would need CSS class; kept simple here */
+    color: '#0f172a',
     textDecoration: 'underline',
-    textDecorationColor: 'rgba(124,58,237,0.6)',
+    textDecorationColor: 'rgba(37,99,235,0.5)',
     textDecorationThickness: 3,
     textUnderlineOffset: 6,
   },
@@ -390,7 +389,7 @@ const s = {
   /* Sub */
   sub: {
     fontSize: 'clamp(15px, 2vw, 19px)',
-    color: '#94a3b8',
+    color: '#475569',
     lineHeight: 1.75,
     maxWidth: 640,
     margin: 0,
@@ -403,30 +402,30 @@ const s = {
   btnPrimary: {
     display: 'inline-flex', alignItems: 'center', gap: 8,
     padding: '14px 32px', borderRadius: 12,
-    background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
+    background: 'linear-gradient(135deg, #2563eb, #0ea5e9)',
     color: '#fff', fontSize: 15, fontWeight: 700,
     textDecoration: 'none',
-    boxShadow: '0 0 30px rgba(124,58,237,0.4)',
+    boxShadow: '0 4px 20px rgba(37,99,235,0.35)',
     transition: 'all 0.2s ease',
   },
   btnPrimaryHov: {
     transform: 'translateY(-2px)',
-    boxShadow: '0 0 44px rgba(124,58,237,0.55)',
+    boxShadow: '0 8px 28px rgba(37,99,235,0.45)',
   },
   btnOutline: {
     display: 'inline-flex', alignItems: 'center', gap: 8,
     padding: '14px 32px', borderRadius: 12,
-    border: '1px solid rgba(148,163,184,0.25)',
-    background: 'rgba(30,41,59,0.4)',
-    color: '#cbd5e1', fontSize: 15, fontWeight: 600,
+    border: '1.5px solid rgba(37,99,235,0.3)',
+    background: 'rgba(255,255,255,0.8)',
+    color: '#2563eb', fontSize: 15, fontWeight: 600,
     textDecoration: 'none',
     backdropFilter: 'blur(8px)',
     transition: 'all 0.2s ease',
   },
   btnOutlineHov: {
-    borderColor: 'rgba(124,58,237,0.5)',
-    background: 'rgba(124,58,237,0.08)',
-    color: '#f8fafc',
+    borderColor: '#2563eb',
+    background: 'rgba(37,99,235,0.06)',
+    color: '#1d4ed8',
     transform: 'translateY(-2px)',
   },
 
@@ -439,10 +438,10 @@ const s = {
     width: 34, height: 34, borderRadius: '50%',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     fontSize: 12, fontWeight: 800, color: '#fff',
-    border: '2px solid #030712',
+    border: '2px solid #ffffff',
     flexShrink: 0,
   },
-  socialCount: { fontSize: 13, color: '#94a3b8', fontWeight: 500 },
+  socialCount: { fontSize: 13, color: '#475569', fontWeight: 500 },
   socialRating: { fontSize: 12, color: '#f59e0b', marginTop: 2 },
 
   /* Logo strip */
@@ -450,16 +449,16 @@ const s = {
     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12,
     width: '100%',
   },
-  logoLabel: { fontSize: 11, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 },
+  logoLabel: { fontSize: 11, color: '#94a3b8', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 600 },
   logoRow: {
     display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8,
   },
   logoChip: {
     padding: '5px 16px',
-    background: 'rgba(30,41,59,0.5)',
-    border: '1px solid rgba(148,163,184,0.12)',
+    background: 'rgba(37,99,235,0.05)',
+    border: '1px solid rgba(37,99,235,0.12)',
     borderRadius: 999,
-    color: '#475569',
+    color: '#64748b',
     fontSize: 12, fontWeight: 600,
   },
 
@@ -473,11 +472,11 @@ const s = {
   },
   scrollLine: {
     width: 1, height: 48,
-    background: 'linear-gradient(180deg, rgba(124,58,237,0.6), transparent)',
+    background: 'linear-gradient(180deg, rgba(37,99,235,0.5), transparent)',
     animation: 'scrollPulse 2s ease-in-out infinite',
   },
   scrollText: {
-    fontSize: 10, color: '#475569', letterSpacing: '0.12em',
+    fontSize: 10, color: '#94a3b8', letterSpacing: '0.12em',
     textTransform: 'uppercase', fontWeight: 600,
   },
 };
